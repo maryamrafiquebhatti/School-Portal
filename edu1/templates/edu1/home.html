@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Educational Platform</h1>
+    <ul>
+        <li><a href="{% url 'create_cohort' %}">Create Cohort</a></li>
+        <li><a href="{% url 'view_cohorts' %}">View Cohorts</a></li>
+        <li><a href="{% url 'create_lesson' %}">Create Lesson</a></li>
+        <li><a href="{% url 'view_lessons' %}">View Lessons</a></li>
+        <li><a href="{% url 'create_question' %}">Create Question</a></li>
+        <li><a href="{% url 'view_questions' %}">View Questions</a></li>
+        <li><a href="{% url 'assign_students' %}">Assign Students</a></li>
+        <li><a href="{% url 'view_assignments' %}">View Assignments</a></li>
+    </ul>
+</body>
+</html>

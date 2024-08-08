@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Assignments</title>
+</head>
+<body>
+    <h1>Assignments</h1>
+    <ul>
+        {% for assignment in assignments %}
+        <li>{{ assignment.user.username }} assigned to {{ assignment.cohort.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

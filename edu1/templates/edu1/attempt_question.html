@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attempt Question</title>
+</head>
+<body>
+    <h1>Attempt Question</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>{{ question.statement }}</p>
+        
+        {% if question.type == 'truefalse' %}
+            <label>
+                <input type="radio" name="answer" value="True"> True
+            </label>
+            <label>
+                <input type="radio" name="answer" value="False"> False
+            </label>
+
+        {% elif question.type == 'mcqs' %}
+            <label>
+                <input type="radio" name="answer" value="a"> {{ question.mcqs.option_a }}
+            </label>
+            <label>
+                <input type="radio" name="answer" value="b"> {{ question.mcqs.option_b }}
+            </label>
+            <label>
+                <input type="radio" name="answer" value="c"> {{ question.mcqs.option_c }}
+            </label>
+            <label>
+                <input type="radio" name="answer" value="d"> {{ question.mcqs.option_d }}
+            </label>
+
+        {% elif question.type == 'fillintheblanks' %}
+            <input type="text" name="answer" placeholder="Your answer">
+
+        {% endif %}
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

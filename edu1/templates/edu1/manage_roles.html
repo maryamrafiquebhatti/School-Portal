@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Roles</title>
+</head>
+<body>
+    <h1>Manage User Roles</h1>
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Current Role</th>
+                    <th>New Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.user.username }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>
+                        <select name="role">
+                            <option value="student" {% if user.role == "student" %}selected{% endif %}>Student</option>
+                            <option value="teacher" {% if user.role == "teacher" %}selected{% endif %}>Teacher</option>
+                            <option value="admin" {% if user.role == "admin" %}selected{% endif %}>Admin</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit" name="user_id" value="{{ user.user.id }}">Update</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Cohorts</title>
+</head>
+<body>
+    <h1>Cohorts</h1>
+    <ul>
+        {% for cohort in cohorts %}
+        <li>{{ cohort.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
